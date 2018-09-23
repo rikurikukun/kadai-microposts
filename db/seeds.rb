@@ -5,3 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Micropost.create!(content: "rik")
+Micropost.create!(content: "riko")
+Micropost.create!(content: "a")
+
+User.create!(name: "アラジン", email: "magi@hoge.com", password: "magimagi")
+
+Like.create!(user_id: 1, micropost_id: 1)
+Like.create!(user_id: 1, micropost_id: 3)
