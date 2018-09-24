@@ -3,14 +3,14 @@ class LikesController < ApplicationController
 
   def create
     user = User.find(params[:micropost_id])
-    current_user.favorite(user)
+    current_user.pet(user)
     flash[:success] = 'お気に入りしました'
     redirect_to user
   end
 
   def destroy
     user = User.find(params[:micropost_id])
-    current_user.unfavorite(user)
+    current_user.unpet(user)
     flash[:success] = 'お気に入りを消しました。'
     redirect_to user
   end

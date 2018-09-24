@@ -3,7 +3,7 @@
     <div class="panel panel-default">
       <div class="panel-heading">
         <h3 class="panel-title">
-<%= @user.name %>
+<%= @micropost.name %>
 </h3>
       </div>
       <div class="panel-body">
@@ -31,8 +31,7 @@ Microposts <span class="badge">
 <%= 'active' if current_page?(pettings_user_path(@user)) %>
 ">
 <%= link_to pettings_user_path(@user) do %>
-Pettings <span class="badge">
-<%= @count_pettings %>
+Pettingings <span class="badge">
 </span>
 <% end %>
 </li>
@@ -41,13 +40,13 @@ Pettings <span class="badge">
 ">
 <%= link_to peters_user_path(@user) do %>
 Peters <span class="badge">
-<%= @count_peters %>
+
 </span>
 <% end %>
 </li>
     </ul>
     
-<%= render 'microposts/microposts', microposts: @microposts %>
+<%= render 'users', users: @peters %>
 
   </div>
 </div>
