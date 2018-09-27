@@ -31,12 +31,28 @@ class User < ApplicationRecord
   def following?(other_user)
     self.followings.include?(other_user)
   end
-
   
   def feed_microposts
-    Micropost.where(user_id: self.following_ids + [self.id])
+      Micropost.where(user_id: self.following_ids + [self.id])
   end
   
-   
-end
+  def pet(other_micropost)
+    self.likes.find_or_create_by(micropost_id: other_micropost.id)
+  end
+  
+  def unpet(other_micropost)
+    like = self.likes.find_by(micropost_id: other_micropost.id)
+    like.destroy if like
+  end
+ 
+  def pettings?(other_micropost)
+    self.pettings.include?(other_micropost)
+  end
 
+ 
+  def feed_likes
+    Micropost.where(user_id: self.pettings_ids + [self.id])
+  end
+ 
+
+end

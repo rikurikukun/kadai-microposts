@@ -6,8 +6,8 @@ Rails.application.routes.draw do
   delete 'logout', to: 'sessions#destroy'
 
   get 'signup', to: 'users#new'
-  get "users/:id/likes", to: "users#like"
-  resources :users, only: [:index, :show, :new, :create] do
+ 
+  resources :users, only: [:index, :show, :new, :create, ] do
   
     member do
       get :followings
@@ -15,6 +15,8 @@ Rails.application.routes.draw do
       
       get :pettings
       get :peters
+      
+      get :like
     end
   end
 
@@ -22,4 +24,6 @@ Rails.application.routes.draw do
   resources :relationships, only: [:create, :destroy]
   
   resources :likes, only: [:create, :destroy]
+  
+ 
 end 
