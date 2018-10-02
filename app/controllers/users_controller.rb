@@ -41,7 +41,7 @@ class UsersController < ApplicationController
     counts(@user)
   end
   
-  def like
+  def likes
      @user = User.find(params[:id])
      @microposts = @user.pettings.order('created_at DESC').page(params[:page])
     

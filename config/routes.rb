@@ -13,10 +13,10 @@ Rails.application.routes.draw do
       get :followings
       get :followers
       
-      get :pettings
-      get :peters
       
-      get :like
+     
+      
+      get :likes
     end
   end
 
